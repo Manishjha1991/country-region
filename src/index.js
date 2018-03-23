@@ -1,7 +1,9 @@
-var _ = require('lodash');
-var ucfirst = require('ucfirst');
-module.exports = function (country) { 
-      let capsCountry=ucfirst(country);
-      var countriesJson = JSON.parse(fs.readFileSync("./src/country.json", 'utf8'));
-      return _.find(countriesJson, function(o) { return o.countryName ===country});
-}
+var _ = require("lodash");
+var ucfirst = require("ucfirst");
+var jsonFilePath = require("./country.json");
+module.exports = function(country) {
+  let capsCountry = ucfirst(country);
+  return _.find(jsonFilePath, function(countryData) {
+    return countryData.countryName === country;
+  });
+};
